@@ -22,21 +22,28 @@ public class Exercicio04 {
 			lido[n] = digito;
 			n++;
 			pilha.push(digito);
-			
+
 			System.out.print("Informe o digito (negativo para encerrar): ");
 			digito = sc.nextInt();
 		}
 
-		n = 0;
-		while (!pilha.isEmpty()) {
-			if (lido[n] == pilha.pop()) {
-				System.out.print("É palindromo!");
-			} else {
-				System.out.print("Não é palindromo!");
-				return;
-			}
-			n++;
+		int invertido[] = new int[n];
+
+		for (int i = 0; !pilha.isEmpty(); i++) {
+			invertido[i] = pilha.pop();
 		}
 
+		boolean isPalindromo = true;
+		for (int i = 0; i < n && isPalindromo; i++) {
+			if (lido[i] != invertido[i]) {
+				isPalindromo = false;
+			}
+		}
+
+		if (isPalindromo) {
+			System.out.print("Eh palindromo!");
+		} else {
+			System.out.print("Nao e palindromo!");
+		}
 	}
 }
