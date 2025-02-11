@@ -1,3 +1,5 @@
+# Recordação - Alocação Dinâmica 11/02/2025
+
 1. Listas Lineares -> Pilhas e Filas
    - Vetores 
    - Alocação Dinâmica
