@@ -40,4 +40,50 @@ public class ABBInt {
 		return cont;
 	}
 
+	public boolean consulta(NO p, int valor) {
+
+		if (p == null)
+			return false;
+		else {
+			if (valor == p.dado)
+				return true;
+			else if (valor < p.dado)
+				return consulta(p.esq, valor);
+			else
+				return consulta(p.dir, valor);
+
+		}
+	}
+
+	public int consultaCont(NO p, int valor, int cont) {
+		boolean encontrou = false;
+
+		if (p == null)
+			return cont;
+		else {
+			if (!encontrou) {
+				cont++;
+			}
+			if (valor == p.dado)
+				return cont;
+			else if (valor < p.dado)
+				return consultaCont(p.esq, valor, cont);
+			else
+				return consultaCont(p.dir, valor, cont);
+		}
+	}
+
+	public int contaConsulta(NO p, int valor, int cont) {
+		if (p != null) {
+			cont++;
+			if (valor == p.dado)
+				return cont;
+			else if (valor < p.dado)
+				cont = contaConsulta(p.esq, valor, cont);
+			else
+				cont = contaConsulta(p.dir, valor, cont);
+		}
+		return cont;
+	}
+
 }

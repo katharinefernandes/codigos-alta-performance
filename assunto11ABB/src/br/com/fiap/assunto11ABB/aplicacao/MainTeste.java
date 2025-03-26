@@ -16,6 +16,8 @@ public class MainTeste {
 		System.out.println("1 - Insere 1 valor na ABB");
 		System.out.println("2 - Apresenta em ordem os elementos da ABB");
 		System.out.println("3 - Apresenta quantidade de nos na ABB");
+		System.out.println("4 - Verifica a existencia de valor na ABB");
+		System.out.println("5 - Apresenta o numero de comparaoes para pesquisas um valor ABB");
 		System.out.print("Informe a opcao desejada: ");
 		int opcao = sc.nextInt();
 
@@ -36,10 +38,23 @@ public class MainTeste {
 				// conta nó presentes
 				System.out.println("Quantidade de nos = " + abb.contaNos(abb.root, 0));
 				break;
+			case 4:
+				System.out.print("Informe o valor a ser procurado: ");
+				valor = sc.nextInt();
+				// usa metodo consulta
+				if (abb.consulta(abb.root, valor)) {
+					System.out.println("Valor esta em ABB");
+				} else {
+					System.out.println("Valor nao esta em ABB");
+				}
+				break;
+			case 5:
+				System.out.print("Informe o valor a ser procudado: ");
+				valor = sc.nextInt();
+				int comparacoes = abb.consultaCont(abb.root, valor, 0);
+				System.out.println("Quantidade de comparacoes: " + comparacoes);
 			default:
 				System.out.println("Opcao Invalida...");
-				System.out.print("Informe a opcao desejada: ");
-				opcao = sc.nextInt();
 			}
 
 			System.out.println("");
