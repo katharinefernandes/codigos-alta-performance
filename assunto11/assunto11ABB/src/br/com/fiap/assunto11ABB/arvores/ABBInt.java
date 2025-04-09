@@ -121,4 +121,12 @@ public class ABBInt {
 		return p;
 	}
 
+	public int maximo(NO p) {
+		NO aux = p;
+		while (aux.dir != null) {
+			aux = aux.dir;
+		}
+		return aux.dado;
+	}
+
 }
